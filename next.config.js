@@ -10,6 +10,7 @@ const nextConfig = {
   //   outputStandalone: true,
   // },
   reactStrictMode: true,
+  swcMinify: true,
 }
 
 const sentryWebpackPluginOptions = {
