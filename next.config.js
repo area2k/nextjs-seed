@@ -6,6 +6,9 @@
 const { withSentryConfig } = require('@sentry/nextjs')
 
 const nextConfig = {
+  // experimental: {
+  //   outputStandalone: true,
+  // },
   reactStrictMode: true,
 }
 
