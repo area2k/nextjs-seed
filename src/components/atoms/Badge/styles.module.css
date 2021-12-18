@@ -1,0 +1,38 @@
+.main {
+  --badge-bg-color: theme('colors.neutral3');
+  --badge-color: theme('textColor.lo');
+
+  display: inline-flex;
+  padding: 0 8px;
+
+  background-color: var(--badge-bg-color);
+  border-radius: theme('borderRadius.full');
+  color: var(--badge-color);
+
+  font-size: theme('fontSize.xs');
+
+  &.status-neutral {
+    --badge-bg-color: theme('colors.neutral3');
+    --badge-color: theme('textColor.lo');
+  }
+
+  &.status-theme {
+    --badge-bg-color: theme('colors.primary3');
+    --badge-color: theme('textColor.primaryLo');
+  }
+
+  &.status-danger {
+    --badge-bg-color: theme('colors.danger3');
+    --badge-color: theme('textColor.dangerLo');
+  }
+
+  &.status-success {
+    --badge-bg-color: theme('colors.success3');
+    --badge-color: theme('textColor.successLo');
+  }
+
+  &.status-warning {
+    --badge-bg-color: theme('colors.warning3');
+    --badge-color: theme('textColor.warningLo');
+  }
+}

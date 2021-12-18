@@ -1,0 +1,21 @@
+.wrapper {
+  background-color: theme('colors.surface');
+  border-bottom: 1px solid theme('colors.neutral6');
+  box-shadow: theme('boxShadow.sm');
+
+  @screen laptop {
+    @apply px-8;
+  }
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 32px 0;
+}
+
+.content {
+  margin: 32px 0;
+}

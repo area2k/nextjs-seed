@@ -1,0 +1,52 @@
+.combobox {
+}
+
+.menu {
+  display: none;
+  list-style: none;
+  padding: 8px 0;
+
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+
+  background-color: theme('colors.surface');
+  border-radius: theme('borderRadius.lg');
+  box-shadow: theme('boxShadow.lg');
+
+  z-index: 1000;
+
+  &.is-open {
+    display: block;
+  }
+}
+
+.item {
+  --bg-color: theme('colors.surface');
+
+  @apply truncate;
+
+  padding: 8px 16px;
+  width: 100%;
+
+  background-color: var(--bg-color);
+  cursor: pointer;
+  outline: none;
+
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &.is-highlighted {
+    --bg-color: theme('colors.primary4');
+  }
+
+  &.is-selected {
+    --bg-color: theme('colors.primary5');
+  }
+
+  &.is-highlighted.is-selected {
+    --bg-color: theme('colors.primary5');
+  }
+}

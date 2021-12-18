@@ -1,0 +1,56 @@
+.root {
+  --radio-size: 18px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  &[data-orientation='vertical'] {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.item {
+  align-items: center;
+  display: flex;
+  height: var(--radio-size);
+  justify-content: center;
+  width: var(--radio-size);
+
+  background-color: theme('colors.surface');
+  border: 1px solid theme('colors.neutral7');
+  border-radius: theme('borderRadius.full');
+
+  @apply ring-primary6;
+
+  &:focus-visible {
+    outline: none;
+
+    @apply ring-2;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &[data-state='checked'] {
+    border-color: theme('colors.primary9');
+  }
+}
+
+.indicator {
+  height: 8px;
+  width: 8px;
+
+  background-color: theme('colors.primary9');
+  border-radius: theme('borderRadius.full');
+}
+
+.label {
+  cursor: pointer;
+  user-select: none;
+
+  font-size: theme('fontSize.sm');
+  line-height: var(--radio-size);
+}

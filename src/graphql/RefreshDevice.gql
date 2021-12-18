@@ -1,0 +1,11 @@
+mutation RefreshDevice($refreshToken: String!) {
+  deviceRefreshToken(refreshToken: $refreshToken) {
+    accessToken
+    refreshToken
+    problem {
+      code
+      message
+      path
+    }
+  }
+}

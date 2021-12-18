@@ -1,0 +1,44 @@
+.main {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+  padding: 8px 16px;
+  width: 100%;
+
+  background-color: theme('colors.neutral2');
+  border: 1px solid theme('colors.neutral6');
+  border-radius: theme('borderRadius.DEFAULT');
+  color: theme('textColor.hi');
+}
+
+.icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 21px;
+  width: 21px;
+}
+
+.status-neutral {
+  background-color: theme('colors.neutral2');
+  border-color: theme('colors.neutral6');
+  color: theme('textColor.hi');
+}
+
+.status-danger {
+  background-color: theme('colors.danger2');
+  border-color: theme('colors.danger6');
+  color: theme('textColor.dangerLo');
+}
+
+.status-success {
+  background-color: theme('colors.success2');
+  border-color: theme('colors.success6');
+  color: theme('textColor.successLo');
+}
+
+.status-warning {
+  background-color: theme('colors.warning2');
+  border-color: theme('colors.warning6');
+  color: theme('textColor.warningHi');
+}

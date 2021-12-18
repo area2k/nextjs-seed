@@ -1,0 +1,90 @@
+@keyframes phoneDialogShow {
+  0% {
+    opacity: 0.3;
+    transform: translate(0, 50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes tabletDialogShow {
+  0% {
+    opacity: 0.3;
+    transform: translate(-50%, 2%) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.dialog {
+  --dialog-max-width: initial;
+
+  width: 100%;
+
+  bottom: 0;
+  left: 0;
+  position: fixed;
+
+  &:focus {
+    outline: none;
+  }
+
+  & > * {
+    box-shadow: none;
+  }
+
+  @screen allowsMotion {
+    animation: phoneDialogShow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  @screen tablet {
+    max-width: var(--dialog-max-width);
+    width: calc(100vw - 32px);
+
+    bottom: initial;
+    left: 50%;
+    top: 72px;
+
+    border-radius: theme('borderRadius.DEFAULT');
+    box-shadow: theme('boxShadow.lg');
+
+    transform: translate(-50%, 0);
+
+    @screen allowsMotion {
+      animation: tabletDialogShow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+  }
+
+  @screen phone {
+    & > *:last-child {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &.size-sm {
+    --dialog-max-width: 24rem;
+  }
+
+  &.size-md {
+    --dialog-max-width: 32rem;
+  }
+
+  &.size-lg {
+    --dialog-max-width: 40rem;
+  }
+
+  &.size-xl {
+    --dialog-max-width: 48rem;
+  }
+
+  &.size-full {
+    --dialog-max-width: initial;
+  }
+}

@@ -1,0 +1,43 @@
+.input {
+  padding: 10px 12px;
+  width: 100%;
+
+  background-color: theme('colors.surface');
+  border: 1px solid theme('colors.neutral7');
+  border-radius: theme('borderRadius.lg');
+
+  font-family: theme('fontFamily.sans');
+  font-size: theme('fontSize.sm');
+
+  transition: box-shadow 300ms ease;
+
+  @apply focus:ring-2 ring-primary6;
+
+  &:focus {
+    outline: none;
+    border-color: theme('colors.primary9');
+
+    &[aria-invalid='true'] {
+      border-color: theme('colors.danger9');
+    }
+  }
+
+  &[aria-invalid='true'] {
+    border-color: theme('colors.danger7');
+
+    &::selection {
+      background: theme('colors.dangerA5');
+    }
+  }
+
+  &[disabled] {
+    background-color: theme('colors.neutral2');
+    color: theme('textColor.xlo');
+    cursor: not-allowed;
+  }
+
+  &::placeholder {
+    color: theme('textColor.xlo');
+    user-select: none;
+  }
+}

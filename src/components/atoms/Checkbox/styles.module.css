@@ -1,0 +1,56 @@
+.root {
+  --checkbox-size: 18px;
+
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.box {
+  align-items: center;
+  display: flex;
+  height: var(--checkbox-size);
+  justify-content: center;
+  width: var(--checkbox-size);
+
+  background-color: theme('colors.surface');
+  border: 1px solid theme('colors.neutral7');
+  border-radius: theme('borderRadius.DEFAULT');
+
+  @apply ring-primary6;
+
+  &:focus-visible {
+    @apply ring-2;
+
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &[data-state='checked'] {
+    background-color: theme('colors.primary9');
+    border-color: theme('colors.primary9');
+    color: white;
+  }
+}
+
+.indicator {
+  width: 12px;
+
+  font-size: 12px;
+  line-height: 1;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.label {
+  cursor: pointer;
+  user-select: none;
+
+  font-size: theme('fontSize.sm');
+  line-height: var(--checkbox-size);
+}

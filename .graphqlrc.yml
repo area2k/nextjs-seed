@@ -1,0 +1,71 @@
+overwrite: true
+schema: schema.gql
+generates:
+  src/types/graphql.d.ts:
+    documents: 'src/**/*.gql'
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      avoidOptionals:
+        defaultValue: true
+        field: true
+        inputValue: false
+        object: true
+      enumsAsTypes: true
+      nonOptionalTypename: true
+      scalars:
+        Email: string
+        ISO8601Date: string
+        ISO8601DateTime: string
+        JSON: object | object[] | string | number | boolean | null
+        Key: string
+        NonNegativeInt: number
+        PhoneNumber: string
+        PositiveInt: number
+        Void: void
+  src/graphql/enums.ts:
+    documents: 'src/**/*.gql'
+    plugins:
+      - typescript
+    config:
+      onlyOperationTypes: true
+      scalars:
+        Email: string
+        ISO8601Date: string
+        ISO8601DateTime: string
+        JSON: object | object[] | string | number | boolean | null
+        Key: string
+        NonNegativeInt: number
+        PositiveInt: number
+        Void: void
+  src/graphql/index.ts:
+    documents: 'src/graphql/*.gql'
+    preset: 'import-types'
+    presetConfig:
+      typesPath: '@/types/graphql'
+    plugins:
+      - typescript-urql
+    config:
+      documentMode: documentNode
+      nonOptionalTypename: true
+      typesPrefix: 'Types.'
+      useTypeImports: true
+  src/:
+    documents: 'src/!(graphql)/**/*.gql'
+    preset: near-operation-file
+    presetConfig:
+      baseTypesPath: 'types/graphql.d.ts'
+      extension: .ts
+      folder: __generated__
+      importTypesNamespace: Types
+    plugins:
+      - typescript-urql
+    config:
+      documentMode: documentNode
+      nonOptionalTypename: true
+      typesPrefix: 'Types.'
+      useTypeImports: true
+  src/graphql/schema.ts:
+    plugins:
+      - urql-introspection

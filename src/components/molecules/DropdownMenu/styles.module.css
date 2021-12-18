@@ -1,0 +1,19 @@
+.content {
+  min-width: 12rem;
+  padding: 6px;
+
+  background-color: theme('colors.surface');
+  border-radius: theme('borderRadius.lg');
+  box-shadow: 0 0 3px 0 theme('colors.neutral5'), theme('boxShadow.lg');
+}
+
+.separator {
+  height: 1px;
+  margin: 6px 8px;
+
+  background-color: theme('colors.neutral6');
+}
+
+.arrow {
+  fill: white;
+}

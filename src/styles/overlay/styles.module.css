@@ -1,0 +1,19 @@
+@keyframes overlayShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.overlay {
+  inset: 0;
+  position: fixed;
+
+  background-color: theme('colors.neutralA7');
+
+  @screen allowsMotion {
+    animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}

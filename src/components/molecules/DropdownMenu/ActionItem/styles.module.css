@@ -1,0 +1,50 @@
+.main {
+  align-items: center;
+  all: 'unset';
+  display: flex;
+  gap: 16px;
+  height: 32px;
+  justify-content: space-between;
+  padding: 0 16px 0 8px;
+  user-select: none;
+  width: 100%;
+
+  border-radius: theme('borderRadius.DEFAULT');
+  color: theme('textColor.hi');
+  cursor: pointer;
+
+  font-size: theme('fontSize.sm');
+  line-height: 1;
+  text-decoration: none;
+
+  &:focus {
+    background-color: theme('colors.neutral4');
+    outline: none;
+
+    text-decoration: none;
+  }
+
+  &.has-left-decorations {
+    padding-left: 32px;
+  }
+}
+
+.dangerous {
+  color: theme('textColor.dangerLo');
+}
+
+.right {
+  color: theme('textColor.lo');
+}
+
+.icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  width: 26px;
+
+  left: 0;
+  position: absolute;
+
+  font-size: 10px;
+}

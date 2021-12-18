@@ -1,0 +1,24 @@
+.main {
+  display: flex;
+  flex: nowrap;
+
+  & > button {
+    border-radius: 0;
+  }
+
+  & > button:focus {
+    z-index: 1;
+  }
+
+  & > button:first-child {
+    border-radius: theme('borderRadius.lg') 0 0 theme('borderRadius.lg');
+  }
+
+  & > button:last-child {
+    border-radius: 0 theme('borderRadius.lg') theme('borderRadius.lg') 0;
+  }
+
+  & > button:not(:first-child) {
+    margin-left: -1px;
+  }
+}
