@@ -26,4 +26,6 @@ const Time = forwardRef<HTMLTimeElement, Props>(
   }
 )
 
+Time.displayName = 'Time'
+
 export default Time

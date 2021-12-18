@@ -79,4 +79,6 @@ const Action = forwardRef<any, Props>(
   }
 )
 
+Action.displayName = 'Action'
+
 export default Action

@@ -31,4 +31,6 @@ const Alert = forwardRef<HTMLDivElement, Props>(
   }
 )
 
+Alert.displayName = 'Alert'
+
 export default Alert

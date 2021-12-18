@@ -24,4 +24,6 @@ const Badge = forwardRef<HTMLSpanElement, Props>(
   }
 )
 
+Badge.displayName = 'Badge'
+
 export default Badge

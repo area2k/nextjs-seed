@@ -21,6 +21,8 @@ export type Props = JSX.IntrinsicElements['table'] & {
   fixed?: boolean
 }
 
+// Display name is defined below, but ESLint does not recognize it
+// eslint-disable-next-line react/display-name
 const Table = forwardRef<HTMLTableElement, Props>(
   ({ className, fixed, ...rest }, ref) => {
     return (
@@ -38,5 +40,7 @@ Table.Cell = Cell
 Table.Head = Head
 Table.Heading = Heading
 Table.Row = Row
+
+Table.displayName = 'Table'
 
 export default Table

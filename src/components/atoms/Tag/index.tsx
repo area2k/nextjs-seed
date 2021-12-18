@@ -25,4 +25,6 @@ const Tag = forwardRef<HTMLSpanElement, Props>(
   }
 )
 
+Tag.displayName = 'Tag'
+
 export default Tag

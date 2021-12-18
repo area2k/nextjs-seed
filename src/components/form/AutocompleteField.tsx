@@ -32,7 +32,7 @@ const AutocompleteField = <FV extends FieldValues>({
 
   const handleSelectedItemChange = useCallback(
     ({ selectedItem }) => onChange(selectedItem),
-    []
+    [onChange]
   )
 
   return (
