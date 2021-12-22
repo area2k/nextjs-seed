@@ -3633,15 +3633,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-polymorphic@npm:^0.0.12":
-  version: 0.0.12
-  resolution: "@radix-ui/react-polymorphic@npm:0.0.12"
-  peerDependencies:
-    react: ^16.8 || ^17.0
-  checksum: a05986e0c6ecc2fa4a7446ba09e3e3fe56ec04d222f3fe118cbb41168a4fcb0c32533e7b08a3b143a44bc446aa32922fcc8b96e32131e036b2fd858dd8643abe
-  languageName: node
-  linkType: hard
-
 "@radix-ui/react-popper@npm:0.1.1":
   version: 0.1.1
   resolution: "@radix-ui/react-popper@npm:0.1.1"
@@ -7030,21 +7021,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-loader@npm:^8.2.2":
-  version: 8.2.2
-  resolution: "babel-loader@npm:8.2.2"
-  dependencies:
-    find-cache-dir: ^3.3.1
-    loader-utils: ^1.4.0
-    make-dir: ^3.1.0
-    schema-utils: ^2.6.5
-  peerDependencies:
-    "@babel/core": ^7.0.0
-    webpack: ">=2"
-  checksum: df5092ef9886bb49aacb7c58ac40ed0681ced031c8d91e49d680cedace2aa1703390a31fbe7c0e409f739836e911c5c991119133d90d9289f681c0a8ff2447a1
-  languageName: node
-  linkType: hard
-
 "babel-plugin-add-react-displayname@npm:^0.0.5":
   version: 0.0.5
   resolution: "babel-plugin-add-react-displayname@npm:0.0.5"
@@ -7132,19 +7108,6 @@ __metadata:
     cosmiconfig: ^7.0.0
     resolve: ^1.19.0
   checksum: 765de4abebd3e4688ebdfbff8571ddc8cd8061f839bb6c3e550b0344a4027b04c60491f843296ce3f3379fb356cc873d57a9ee6694262547eb822c14a25be9a6
-  languageName: node
-  linkType: hard
-
-"babel-plugin-module-resolver@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "babel-plugin-module-resolver@npm:4.1.0"
-  dependencies:
-    find-babel-config: ^1.2.0
-    glob: ^7.1.6
-    pkg-up: ^3.1.0
-    reselect: ^4.0.0
-    resolve: ^1.13.1
-  checksum: 3907fba21ca3c66a081e01fbd16bb09c84781749db16aa57805becc376bb5ee8dc373d4b209613e1453d30ea6c836d13073e9e7b6d239ff1806dd1763a9ab18f
   languageName: node
   linkType: hard
 
@@ -10504,16 +10467,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-babel-config@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "find-babel-config@npm:1.2.0"
-  dependencies:
-    json5: ^0.5.1
-    path-exists: ^3.0.0
-  checksum: 0a1785d3da9f38637885d9d65f183aaa072f51a834f733035e9694e4d0f6983ae8c8e75cd4e08b92af6f595b3b490ee813a1c5a9b14740685aa836fa1e878583
-  languageName: node
-  linkType: hard
-
 "find-cache-dir@npm:3.3.1":
   version: 3.3.1
   resolution: "find-cache-dir@npm:3.3.1"
@@ -13039,15 +12992,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json5@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "json5@npm:0.5.1"
-  bin:
-    json5: lib/cli.js
-  checksum: 9b85bf06955b23eaa4b7328aa8892e3887e81ca731dd27af04a5f5f1458fbc5e1de57a24442e3272f8a888dd1abe1cb68eb693324035f6b3aeba4fcab7667d62
-  languageName: node
-  linkType: hard
-
 "json5@npm:^1.0.1":
   version: 1.0.1
   resolution: "json5@npm:1.0.1"
@@ -14496,7 +14440,6 @@ __metadata:
     "@radix-ui/react-checkbox": ^0.1.1
     "@radix-ui/react-dialog": ^0.1.1
     "@radix-ui/react-dropdown-menu": ^0.1.1
-    "@radix-ui/react-polymorphic": ^0.0.12
     "@radix-ui/react-radio-group": ^0.1.1
     "@radix-ui/react-tooltip": ^0.1.1
     "@sentry/nextjs": ^6.16.1
@@ -14513,8 +14456,6 @@ __metadata:
     "@urql/exchange-auth": ^0.1.4
     "@urql/exchange-graphcache": ^4.2.1
     autoprefixer: ^10.2.6
-    babel-loader: ^8.2.2
-    babel-plugin-module-resolver: ^4.1.0
     classnames: ^2.3.1
     date-fns: ^2.26.0
     downshift: ^6.1.7
@@ -15567,7 +15508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pkg-up@npm:3.1.0, pkg-up@npm:^3.1.0":
+"pkg-up@npm:3.1.0":
   version: 3.1.0
   resolution: "pkg-up@npm:3.1.0"
   dependencies:
@@ -17075,13 +17016,6 @@ __metadata:
   version: 2.0.0
   resolution: "require-main-filename@npm:2.0.0"
   checksum: e9e294695fea08b076457e9ddff854e81bffbe248ed34c1eec348b7abbd22a0d02e8d75506559e2265e96978f3c4720bd77a6dad84755de8162b357eb6c778c7
-  languageName: node
-  linkType: hard
-
-"reselect@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "reselect@npm:4.0.0"
-  checksum: ac7dfc9ef2cdb42b6fc87a856f3ce904c2e4363a2bc1e6fb7eea5f78902a6f506e4388e6509752984877c6dbfe501100c076671d334799eb5a1bfe9936cb2c12
   languageName: node
   linkType: hard
 
