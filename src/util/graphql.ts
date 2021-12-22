@@ -1,8 +1,6 @@
 import { faServer, faWifi } from '@fortawesome/free-solid-svg-icons'
 import { Operation, OperationResult } from 'urql'
 
-import { PickRequired } from '@/types/util'
-
 import { FormError } from '@/hooks/useForm'
 
 export type SuccessfulOperationResult<TData, TVariables> = PickRequired<
