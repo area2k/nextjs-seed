@@ -1,7 +1,5 @@
 import cx from 'classnames'
 
-import { StyleProps } from '@/types/styles'
-
 import TableAtom from '@/components/atoms/Table'
 
 import styles from './styles.module.css'
@@ -18,6 +16,8 @@ export type Props<T> = StyleProps & {
   renderRow: (row: T, index: number, rows: T[]) => JSX.Element
 }
 
+// NOTE: due to JSX parsing, https://github.com/typescript-eslint/typescript-eslint/issues/4062
+/* eslint-disable-next-line @typescript-eslint/no-unnecessary-type-constraint */
 const Table = <T extends any>({
   className,
   fixed = false,

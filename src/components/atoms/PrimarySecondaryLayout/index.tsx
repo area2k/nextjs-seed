@@ -1,8 +1,6 @@
 import cx from 'classnames'
 import { HTMLProps, PropsWithChildren } from 'react'
 
-import { StyleProps } from '@/types/styles'
-
 import styles from './styles.module.css'
 
 export type Variants = {

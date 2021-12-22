@@ -2,8 +2,6 @@ import cx from 'classnames'
 import { ComponentPropsWithoutRef, forwardRef } from 'react'
 import ReactPhoneNumberInput from 'react-phone-number-input/input'
 
-import { StyleProps } from '@/types/styles'
-
 import getClassNames from '@/styles/input'
 
 export type Props = Omit<ComponentPropsWithoutRef<'input'>, 'onChange'> &
@@ -13,7 +11,7 @@ export type Props = Omit<ComponentPropsWithoutRef<'input'>, 'onChange'> &
   }
 
 const PhoneInput = forwardRef<HTMLInputElement, Props>(
-  ({ className, ...props }, ref) => {
+  ({ className, ...props }) => {
     return (
       <ReactPhoneNumberInput
         {...props}

@@ -1,8 +1,6 @@
 import cx from 'classnames'
 import { ChangeEvent, forwardRef, useCallback } from 'react'
 
-import { StyleProps } from '@/types/styles'
-
 import getClassNames from '@/styles/input'
 
 import styles from './styles.module.css'

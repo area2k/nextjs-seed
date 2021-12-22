@@ -39,4 +39,6 @@ const Footer = ({
   )
 }
 
+Footer.displayName = 'Card.Footer'
+
 export default Footer

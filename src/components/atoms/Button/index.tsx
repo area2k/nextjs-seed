@@ -8,13 +8,12 @@ import getClassNames, { Variants } from '@/styles/button'
 
 export type BaseProps = Omit<Variants, 'iconic'> & {
   a11yLabel: string
-  children?: never
   iconLeft?: IconDefinition
   iconRight?: IconDefinition
   label?: string
 }
 
-export type Props = ComponentPropsWithoutRef<'button'> &
+export type Props = Omit<ComponentPropsWithoutRef<'button'>, 'children'> &
   BaseProps & {
     disabled?: boolean
     isLoading?: boolean
@@ -70,6 +69,8 @@ const Button = forwardRef<HTMLButtonElement, Props>(
           <FontAwesomeIcon
             fixedWidth
             spin={isLoading}
+            // NOTE: valid use of a non-null assertion
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             icon={isLoading ? loadingIcon : iconLeft!}
           />
         )}

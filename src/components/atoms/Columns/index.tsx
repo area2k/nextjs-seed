@@ -1,5 +1,4 @@
 import cx from 'classnames'
-import { StyleProps } from '@/types/styles'
 import { PropsWithChildren } from 'react'
 
 import styles from './styles.module.css'

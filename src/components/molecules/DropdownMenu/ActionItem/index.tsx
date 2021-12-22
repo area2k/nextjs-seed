@@ -7,7 +7,7 @@ import { GenericActionOrList } from '@/types/actions'
 
 import Link from '@/components/atoms/Link'
 
-import { isActionList, isCallbackAction, isLinkAction } from '@/util/action'
+import { isCallbackAction, isLinkAction } from '@/util/action'
 
 import styles from './styles.module.css'
 

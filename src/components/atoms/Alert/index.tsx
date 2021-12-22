@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import cx from 'classnames'
 import { forwardRef } from 'react'
 
-import { StyleProps } from '@/types/styles'
-
 import styles from './styles.module.css'
 
 export type Props = StyleProps & {

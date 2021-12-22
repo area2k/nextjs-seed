@@ -8,7 +8,6 @@ import Link, { Props as LinkProps } from '@/components/atoms/Link'
 import getButtonClassNames, { Variants } from '@/styles/button'
 
 export type ButtonProps = Omit<Variants, 'iconic' | 'hasPopup'> & {
-  children?: never
   iconLeft?: IconDefinition
   iconRight?: IconDefinition
 }

@@ -3,7 +3,6 @@ import cx from 'classnames'
 // import Link from 'next/link'
 
 import { LinkAction } from '@/types/actions'
-import { StyleProps } from '@/types/styles'
 import { PickRequired } from '@/types/util'
 
 import Link from '@/components/atoms/Link'

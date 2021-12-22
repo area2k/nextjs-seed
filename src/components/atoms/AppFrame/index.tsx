@@ -1,7 +1,7 @@
 import cx from 'classnames'
-import { FC } from 'react'
+import { PropsWithChildren } from 'react'
 
-import NavbarArea, { Props as NavbarAreaProps } from './NavbarArea'
+import NavbarArea from './NavbarArea'
 import SidebarArea from './SidebarArea'
 
 import styles from './styles.module.css'
@@ -10,14 +10,10 @@ export type Props = {
   withSidebar?: boolean
 }
 
-export type AppFrameType = FC<Props> & {
-  ContentArea: FC
-  FooterArea: FC
-  NavbarArea: FC<NavbarAreaProps>
-  SidebarArea: FC
-}
-
-const AppFrame: FC<Props> = ({ children, withSidebar = false }) => {
+const AppFrame = ({
+  children,
+  withSidebar = false,
+}: PropsWithChildren<Props>) => {
   return (
     <article
       className={cx(styles.main, { [styles['with-sidebar']]: withSidebar })}
@@ -27,21 +23,24 @@ const AppFrame: FC<Props> = ({ children, withSidebar = false }) => {
   )
 }
 
-const ContentArea: FC = ({ children }) => (
+const ContentArea = ({ children }: EmptyPropsWithChildren) => (
   <section style={{ gridArea: 'content' }}>{children}</section>
 )
 
-const FooterArea: FC = ({ children }) => (
+const FooterArea = ({ children }: EmptyPropsWithChildren) => (
   <footer style={{ gridArea: 'footer' }}>{children}</footer>
 )
 
-// @ts-ignore
 AppFrame.ContentArea = ContentArea
-// @ts-ignore
-AppFrame.FooterArea = FooterArea
-// @ts-ignore
-AppFrame.NavbarArea = NavbarArea
-// @ts-ignore
-AppFrame.SidebarArea = SidebarArea
+ContentArea.displayName = 'AppFrame.ContentArea'
 
-export default AppFrame as AppFrameType
+AppFrame.FooterArea = FooterArea
+FooterArea.displayName = 'AppFrame.FooterArea'
+
+AppFrame.NavbarArea = NavbarArea
+NavbarArea.displayName = 'AppFrame.NavbarArea'
+
+AppFrame.SidebarArea = SidebarArea
+SidebarArea.displayName = 'AppFrame.SidebarArea'
+
+export default AppFrame

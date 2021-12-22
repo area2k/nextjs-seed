@@ -6,7 +6,7 @@ import ButtonGroupComponent from '@/components/atoms/ButtonGroup'
 
 // import docs from './docs.mdx'
 
-export const ButtonGroup: Story = (props) => (
+export const ButtonGroup: Story = () => (
   <ButtonGroupComponent>
     <Button
       a11yLabel="Click this button"

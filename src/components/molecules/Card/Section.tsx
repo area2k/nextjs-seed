@@ -54,4 +54,6 @@ const Section = ({ actions, children, flush, subdued, title }: Props) => {
   )
 }
 
+Section.displayName = 'Card.Section'
+
 export default Section

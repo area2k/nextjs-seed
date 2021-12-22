@@ -1,8 +1,6 @@
-import { PropsWithChildren } from 'react'
-
 import styles from './styles.module.css'
 
-const ButtonGroup = (props: PropsWithChildren<{}>) => {
+const ButtonGroup = (props: EmptyPropsWithChildren) => {
   return <div className={styles.main} {...props} />
 }
 

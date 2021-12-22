@@ -40,4 +40,6 @@ const Header = ({ actions, children, subtitle, title }: Props) => {
   )
 }
 
+Header.displayName = 'Card.Header'
+
 export default Header

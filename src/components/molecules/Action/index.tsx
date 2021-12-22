@@ -16,7 +16,7 @@ export type Variants = Omit<ButtonVariants, 'hasPopup' | 'iconic'>
 
 type ElementProps = Omit<
   HTMLProps<HTMLElement>,
-  keyof Variants | 'action' | 'ref' | 'type'
+  keyof Variants | 'action' | 'children' | 'ref' | 'type'
 >
 
 export type Props = ElementProps &
@@ -26,7 +26,7 @@ export type Props = ElementProps &
   }
 
 const Action = forwardRef<any, Props>(
-  ({ action, children, status, listOptions, ...rest }, ref) => {
+  ({ action, status, listOptions, ...rest }, ref) => {
     const commonProps = {
       ...rest,
       iconLeft: action.icon,

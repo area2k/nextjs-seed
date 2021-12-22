@@ -1,8 +1,6 @@
-import { PropsWithChildren } from 'react'
-
 import GraphQLProvider from '@/components/providers/GraphQLProvider'
 
-const Unauthenticated = ({ children }: PropsWithChildren<{}>) => {
+const Unauthenticated = ({ children }: EmptyPropsWithChildren) => {
   return <GraphQLProvider>{children}</GraphQLProvider>
 }
 

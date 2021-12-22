@@ -1,8 +1,6 @@
 import cx from 'classnames'
 import { forwardRef, ForwardRefExoticComponent, PropsWithChildren } from 'react'
 
-import { StyleProps } from '@/types/styles'
-
 import Footer, { Props as FooterProps } from './Footer'
 import Header, { Props as HeaderProps } from './Header'
 import Section from './Section'
@@ -28,7 +26,7 @@ type CardType = ForwardRefExoticComponent<Props> & {
   Section: typeof Section
 }
 
-const Card = forwardRef<HTMLDivElement, Props>(
+const BaseCard = forwardRef<HTMLDivElement, Props>(
   (
     {
       actions,
@@ -74,13 +72,12 @@ const Card = forwardRef<HTMLDivElement, Props>(
   }
 )
 
-Card.displayName = 'Card'
+BaseCard.displayName = 'Card'
 
-// @ts-ignore
+const Card = BaseCard as CardType
+
 Card.Footer = Footer
-// @ts-ignore
 Card.Header = Header
-// @ts-ignore
 Card.Section = Section
 
-export default Card as CardType
+export default Card
