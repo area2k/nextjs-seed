@@ -1,6 +1,10 @@
-// const { text, ...colors } = require('./theme/colors')
+// @ts-check
+
 const { colors, textColors } = require('./theme/colorNames')
 
+/**
+ * @type {import('tailwindcss/tailwind-config').TailwindConfig}
+ */
 module.exports = {
   content: ['./src/**/*.{tsx,css}'],
   dark: 'class',
