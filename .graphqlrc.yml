@@ -66,6 +66,6 @@ generates:
       nonOptionalTypename: true
       typesPrefix: 'Types.'
       useTypeImports: true
-  src/graphql/schema.ts:
+  src/graphql/__generated__/schema.ts:
     plugins:
       - urql-introspection
