@@ -1,19 +1,19 @@
-# Install dependencies only when needed
-FROM node:16-alpine AS deps
+# NPM package cache layer
+FROM node:16-alpine AS package_cache
+
 RUN apk add --no-cache libc6-compat
+
 WORKDIR /app
 COPY package.json yarn.lock .yarnrc.yml ./
+
 RUN mkdir .yarn
 COPY .yarn/releases ./.yarn/releases
 COPY .yarn/plugins ./.yarn/plugins
+
 RUN yarn install --immutable --inline-builds
 
-# Rebuild the source code only when needed
+# Build output layer
 FROM node:16-alpine AS builder
-WORKDIR /app
-
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
 
 ARG GRAPHQL_ENDPOINT
 ARG SENTRY_DSN
@@ -23,11 +23,15 @@ ENV NEXT_PUBLIC_SENTRY_DSN=${SENTRY_DSN}
 
 ENV SENTRY_DSN=${SENTRY_DSN}
 
+WORKDIR /app
+COPY --from=package_cache /app/node_modules ./node_modules
+COPY . .
+
 RUN yarn build
 RUN yarn workspaces focus --production --all
 
-# Production image, copy all the files and run next
-FROM node:16-alpine AS runner
+# NextJS server image
+FROM node:16-alpine AS nextjs_server
 WORKDIR /app
 
 RUN addgroup -g 1001 -S nodejs
