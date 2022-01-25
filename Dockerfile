@@ -32,6 +32,7 @@ RUN yarn workspaces focus --production --all
 
 # NextJS server image
 FROM node:16-alpine AS nextjs_server
+
 WORKDIR /app
 
 RUN addgroup -g 1001 -S nodejs
@@ -41,14 +42,8 @@ COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-# COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-# COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-# Remove the 2 below lines when output traces are turned on
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
@@ -58,4 +53,4 @@ ENV PORT 3000
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV NODE_ENV production
 
-CMD ["node_modules/.bin/next", "start"]
+CMD ["node", "server.js"]

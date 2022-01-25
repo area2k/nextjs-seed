@@ -11,9 +11,9 @@ const { withSentryConfig } = require('@sentry/nextjs')
  * @type {import('next').NextConfig}
  **/
 const nextConfig = {
-  // experimental: {
-  //   outputStandalone: true,
-  // },
+  experimental: {
+    outputStandalone: true,
+  },
   reactStrictMode: true,
   swcMinify: true,
 }
