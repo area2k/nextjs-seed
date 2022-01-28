@@ -13,8 +13,15 @@ COPY .yarn/plugins ./.yarn/plugins
 
 RUN yarn install --immutable --inline-builds && yarn cache clean --all
 
+# App code with dependencies layer
+FROM node:16-alpine AS app_context
+
+WORKDIR /app
+COPY --from=package_cache /app/node_modules ./node_modules
+COPY . .
+
 # Build output layer
-FROM node:16-alpine AS builder
+FROM app_context AS nextjs_builder
 
 ARG GRAPHQL_ENDPOINT
 ARG SENTRY_DSN
@@ -23,10 +30,6 @@ ENV NEXT_PUBLIC_GRAPHQL_ENDPOINT=${GRAPHQL_ENDPOINT}
 ENV NEXT_PUBLIC_SENTRY_DSN=${SENTRY_DSN}
 
 ENV SENTRY_DSN=${SENTRY_DSN}
-
-WORKDIR /app
-COPY --from=package_cache /app/node_modules ./node_modules
-COPY . .
 
 RUN yarn build && rm -rf node_modules && rm -rf .yarn
 
@@ -38,12 +41,12 @@ WORKDIR /app
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
+COPY --from=nextjs_builder /app/next.config.js ./
+COPY --from=nextjs_builder /app/public ./public
+COPY --from=nextjs_builder /app/package.json ./package.json
 
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=nextjs_builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=nextjs_builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
@@ -54,3 +57,13 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ENV NODE_ENV production
 
 CMD ["node", "server.js"]
+
+# Storybook builder layer
+FROM app_context AS storybook_builder
+
+RUN yarn build-storybook && rm -rf node_modules && rm -rf .yarn
+
+# Storybook server image
+FROM httpd:2.4-alpine AS storybook
+
+COPY --from=storybook_builder /app/storybook-static/ /usr/local/apache2/htdocs/

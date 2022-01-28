@@ -10,3 +10,9 @@ services:
         PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:?Missing client sentry dsn}
     ports:
       - ${PORT:-8080}:3000
+  storybook:
+    build:
+      context: .
+      target: storybook
+    ports:
+      - 6006:80
