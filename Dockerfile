@@ -1,7 +1,8 @@
 # NPM package cache layer
 FROM node:16-alpine AS package_cache
 
-RUN apk add --no-cache libc6-compat
+# Alpine musl seems sufficient for most things. Uncomment if getting install errors.
+# RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 COPY package.json yarn.lock .yarnrc.yml ./
@@ -10,7 +11,7 @@ RUN mkdir .yarn
 COPY .yarn/releases ./.yarn/releases
 COPY .yarn/plugins ./.yarn/plugins
 
-RUN yarn install --immutable --inline-builds
+RUN yarn install --immutable --inline-builds && yarn cache clean --all
 
 # Build output layer
 FROM node:16-alpine AS builder
@@ -27,8 +28,7 @@ WORKDIR /app
 COPY --from=package_cache /app/node_modules ./node_modules
 COPY . .
 
-RUN yarn build
-RUN yarn workspaces focus --production --all
+RUN yarn build && rm -rf node_modules && rm -rf .yarn
 
 # NextJS server image
 FROM node:16-alpine AS nextjs_server
