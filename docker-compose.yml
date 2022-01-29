@@ -8,6 +8,7 @@ services:
         GRAPHQL_ENDPOINT: ${NEXT_PUBLIC_GRAPHQL_ENDPOINT:?Missing graphql endpoint}
         SENTRY_DSN: ${SENTRY_DSN:?Missing server sentry dsn}
         PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:?Missing client sentry dsn}
+        SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN:?Missing sentry auth token}
     ports:
       - ${PORT:-8080}:3000
   storybook:

@@ -10,3 +10,4 @@ README.md
 .git
 .yarn/cache
 .yarn/install-state.gz
+.sentryclirc
