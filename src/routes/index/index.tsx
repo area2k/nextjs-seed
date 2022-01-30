@@ -4,6 +4,8 @@ import Card from '@/components/molecules/Card'
 import SingleColumnLayout from '@/components/atoms/SingleColumnLayout'
 import Unauthenticated from '@/components/layouts/Unauthenticated'
 
+import { BUILD_NAME } from '@/util/constants'
+
 const Dashboard = () => {
   return (
     <>
@@ -11,12 +13,24 @@ const Dashboard = () => {
         <title>App / Dashboard</title>
       </Head>
       <SingleColumnLayout>
-        <div className="py-8 laptop:py-24">
-          <Card title="Dashboard">
+        <div className="pt-8 laptop:pt-24">
+          <Card
+            title="Dashboard"
+            primaryFooterAction={{
+              a11yLabel: 'Click to destroy',
+              label: 'Boom',
+              onAction: () => {
+                throw 'oops!'
+              },
+            }}
+          >
             <Card.Section>
               <p>Hello, world!</p>
             </Card.Section>
           </Card>
+        </div>
+        <div className="mt-4">
+          <small>{BUILD_NAME}</small>
         </div>
       </SingleColumnLayout>
     </>

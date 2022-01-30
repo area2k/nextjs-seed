@@ -5,16 +5,17 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build-id": "git describe --tags --dirty --long",
     "start": "next start",
     "lint": "next lint",
-    "docker": "docker compose --env-file .env.local --profile e2e up --remove-orphans",
+    "docker": "BUILD_ID=$(yarn build-id) docker compose --env-file .env.local --profile e2e up --remove-orphans",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "graphql": "graphql-codegen --config .graphqlrc.yml",
     "type-check": "tsc --pretty --noEmit && tsc -p e2e/tsconfig.json --pretty --noEmit",
     "e2e": "cypress open",
     "e2e:run": "cypress run",
-    "e2e:docker": "docker compose -f docker-compose.yml -f docker-compose.e2e.yml --env-file .env.local --profile e2e up --build --exit-code-from cypress --remove-orphans",
+    "e2e:docker": "BUILD_ID=$(yarn build-id) docker compose -f docker-compose.yml -f docker-compose.e2e.yml --env-file .env.local --profile e2e up --build --exit-code-from cypress --remove-orphans",
     "e2e:clean": "rm -rf e2e/downloads e2e/videos e2e/results"
   },
   "dependencies": {

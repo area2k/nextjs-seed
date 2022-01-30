@@ -35,7 +35,10 @@ const Frame = ({ hideFraming = false, children }: PropsWithChildren<Props>) => {
       {children}
       <AppFrame.FooterArea>
         <div className="p-8 text-center">
-          <small>&copy; 2021 Area2K. All Rights Reserved.</small>
+          <small>
+            &copy; Area2K &mdash; {process.env.BUILD_ID} (
+            {process.env.BUILD_ENV})
+          </small>
         </div>
       </AppFrame.FooterArea>
     </AppFrame>
