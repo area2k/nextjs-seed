@@ -47,3 +47,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# cypress
+e2e/downloads
+e2e/screenshots
+e2e/videos
+e2e/results

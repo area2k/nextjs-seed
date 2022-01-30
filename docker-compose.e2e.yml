@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  cypress:
+    build:
+      context: .
+      dockerfile: ./e2e/Dockerfile
+      target: cypress_ts
+    profiles:
+      - e2e
+    depends_on:
+      - web
+    environment:
+      - CYPRESS_baseUrl=http://web:3000
+    working_dir: /app
+    volumes:
+      - ./e2e:/app/e2e
+      - ./cypress.json:/app/cypress.json
+      - ./tsconfig.json:/app/tsconfig.json

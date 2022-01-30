@@ -1,5 +1,7 @@
 Dockerfile
 .dockerignore
+docker-compose.yml
+docker-compose.*.yml
 node_modules
 npm-debug.log
 yarn-error.log
@@ -8,6 +10,12 @@ README.md
 .env
 .env.*
 .git
+.gitignore
 .yarn/cache
 .yarn/install-state.gz
 .sentryclirc
+e2e
+cypress.json
+*.tsbuildinfo
+*.log
+.DS_Store

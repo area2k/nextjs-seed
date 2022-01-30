@@ -7,10 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "docker": "docker compose --env-file .env.local --profile e2e up --remove-orphans",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "graphql": "graphql-codegen --config .graphqlrc.yml",
-    "type-check": "tsc --pretty --noEmit"
+    "type-check": "tsc --pretty --noEmit && tsc -p e2e/tsconfig.json --pretty --noEmit",
+    "e2e": "cypress open",
+    "e2e:run": "cypress run",
+    "e2e:docker": "docker compose -f docker-compose.yml -f docker-compose.e2e.yml --env-file .env.local --profile e2e up --build --exit-code-from cypress --remove-orphans",
+    "e2e:clean": "rm -rf e2e/downloads e2e/videos e2e/results"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -65,6 +70,7 @@
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
     "autoprefixer": "^10.2.6",
+    "cypress": "9.3.1",
     "eslint": "<8.0.0",
     "eslint-config-next": "12.0.4",
     "postcss": "^8.3.5",

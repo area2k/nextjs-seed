@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  storybook:
+    build:
+      context: .
+      target: storybook
+    profiles:
+      - dev
+    ports:
+      - 6006:80
